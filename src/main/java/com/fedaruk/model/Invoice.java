@@ -13,7 +13,7 @@ import java.util.Objects;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JacksonXmlRootElement(localName = "Invoice")
-@JsonPropertyOrder({"E100customerKey","InvoiceNumber","InvoiceCountry","ProductCode"})
+@JsonPropertyOrder({"E100customerKey","InvoiceNumber","InvoiceCountry","ProductCode","InvoiceLines"})
 public class Invoice implements Serializable {
 
     @JsonProperty(value = "InvoiceNumber")
@@ -22,8 +22,10 @@ public class Invoice implements Serializable {
     private String InvoiceCountry;
     @JsonProperty(value = "E100customerKey")
     private String E100customerKey;
-    @JsonProperty(value = "ProductCode")
-    private String ProductCode;
+    @JsonProperty(value = "InvoiceLines")
+    @JacksonXmlElementWrapper(useWrapping = false)
+    private InvoiceLines InvoiceLines;
+
 
 //    private double VATamount;
 //    private double VATpersent;
@@ -32,14 +34,11 @@ public class Invoice implements Serializable {
     public Invoice() {
     }
 
-    public Invoice(String invoiceNumber, String invoiceCountry, String e100customerKey, String productCode) {
-        this.InvoiceNumber = invoiceNumber;
-        this.InvoiceCountry = invoiceCountry;
-        this.E100customerKey = e100customerKey;
-        this.ProductCode = productCode;
-//        this.VATamount = VATamount;
-//        this.VATpersent = VATpersent;
-//        this.VATBasis = VATBasis;
+    public Invoice(String invoiceNumber, String invoiceCountry, String e100customerKey, com.fedaruk.model.InvoiceLines invoiceLines) {
+        InvoiceNumber = invoiceNumber;
+        InvoiceCountry = invoiceCountry;
+        E100customerKey = e100customerKey;
+        InvoiceLines = invoiceLines;
     }
 
     public String getInvoiceNumber() {
@@ -66,15 +65,15 @@ public class Invoice implements Serializable {
         this.E100customerKey = e100customerKey;
     }
 
-    public String getProductCode() {
-        return ProductCode;
+    public com.fedaruk.model.InvoiceLines getInvoiceLines() {
+        return InvoiceLines;
     }
 
-    public void setProductCode(String productCode) {
-        this.ProductCode = productCode;
+    public void setInvoiceLines(com.fedaruk.model.InvoiceLines invoiceLines) {
+        InvoiceLines = invoiceLines;
     }
 
-//    public double getVATamount() {
+    //    public double getVATamount() {
 //        return VATamount;
 //    }
 //
@@ -118,10 +117,7 @@ public class Invoice implements Serializable {
                 "InvoiceNumber='" + InvoiceNumber + '\'' +
                 ", InvoiceCountry='" + InvoiceCountry + '\'' +
                 ", E100customerKey='" + E100customerKey + '\'' +
-                ", ProductCode='" + ProductCode + '\'' +
-//                ", VATamount=" + VATamount +
-//                ", VATpersent=" + VATpersent +
-//                ", VATBasis=" + VATBasis +
+                ", " + InvoiceLines +
                 '}';
     }
 }
