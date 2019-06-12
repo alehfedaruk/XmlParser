@@ -33,7 +33,6 @@ public class Invoice implements Serializable {
     private Double VATBasis;
 
     ///// Calculated fields /////
-
     @JsonProperty(value = "VATSum")
     private Double VATSum;
     @JsonProperty(value = "VATDeviation")

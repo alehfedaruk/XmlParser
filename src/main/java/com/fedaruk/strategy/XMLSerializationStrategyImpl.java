@@ -12,9 +12,9 @@ public class XMLSerializationStrategyImpl implements SerializationStrategy {
     private XmlMapper mapper = new XmlMapper();
 
     @Override
-    public void serializeObject(File destination, InvoicesHolder holder) throws IOException {
+    public void serializeObject(File destination, InvoicesHolder holder, double primaryDeviation, double secondaryDeviation) throws IOException {
         mapper = new XmlMapper();
-        InvoiceCalculation.calculateValuesForInvoices(holder, 0.0054,0.024);
+        InvoiceCalculation.calculateValuesForInvoices(holder, primaryDeviation, secondaryDeviation);
         mapper.configure(ToXmlGenerator.Feature.WRITE_XML_DECLARATION, true);
         mapper.writerWithDefaultPrettyPrinter().writeValue(destination, holder);
     }
