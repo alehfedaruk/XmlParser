@@ -16,6 +16,7 @@ public class Main extends Application {
         primaryStage.setTitle("VATXMLCalculator");
         primaryStage.setScene(scene);
         primaryStage.show();
+        scene.getStylesheets().add(getClass().getResource("/css/style.css").toExternalForm());
     }
 
     public static void main(String[] args) {
