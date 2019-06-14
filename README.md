@@ -6,3 +6,5 @@ Techs:
 Maven 
 Jackson
 Apache Commons
+JavaFX
+CSS
