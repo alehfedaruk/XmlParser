@@ -4,9 +4,12 @@ import com.fedaruk.model.Invoice;
 import com.fedaruk.model.InvoicesHolder;
 import org.apache.commons.math3.util.Precision;
 
+import java.util.Comparator;
 import java.util.List;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
+
+import static java.math.BigDecimal.ROUND_HALF_UP;
 
 public class InvoiceCalculation {
 
@@ -20,6 +23,7 @@ public class InvoiceCalculation {
                 .peek(InvoiceCalculation::calculatePercent)
                 .peek(InvoiceCalculation::calculateValueToChange)
                 .peek(invoice -> invoice.setValueToChange(negateValue(invoice.getValueToChange())))
+                .sorted(Comparator.comparing(Invoice::getInvoiceNumber))
                 .collect(Collectors.toList());
         holder.setInvoices(filteredInvoices);
     }
@@ -44,7 +48,7 @@ public class InvoiceCalculation {
     }
 
     private static void calculateVATDeviation(Invoice invoice) {
-        invoice.setVATDeviation(Precision.round((invoice.getVATSum() - invoice.getVATamount()), 5));
+        invoice.setVATDeviation(Precision.round((invoice.getVATSum() - invoice.getVATamount()), 5, ROUND_HALF_UP));
     }
 
     private static void calculateColumnSumVAT(Invoice invoice) {
