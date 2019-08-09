@@ -9,7 +9,7 @@ import java.io.File;
 import java.io.IOException;
 
 public class XMLSerializationStrategyImpl implements SerializationStrategy {
-    private XmlMapper mapper = new XmlMapper();
+    private XmlMapper mapper;
 
     @Override
     public void serializeObject(File destination, InvoicesHolder holder, double primaryDeviation, double secondaryDeviation) throws IOException {
