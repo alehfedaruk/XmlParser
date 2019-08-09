@@ -1,6 +1,6 @@
 # XmlParser
 
-Simple xml parser as an improvement for current job process. 
+Simple xml parser
 
 Techs: 
 Maven 
