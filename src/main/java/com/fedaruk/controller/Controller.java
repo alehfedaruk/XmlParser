@@ -53,14 +53,18 @@ public class Controller {
     }
 
     public void convertFile(ActionEvent event) throws IOException {
+        final String primaryPattern = "0+[.,]?([0-9]+)?";
+        final String secondaryPattern = "([0-9])+([.,])([0-9]+)";
+
         SerializationStrategy strategy = new XMLSerializationStrategyImpl();
         if (source != null) {
             InvoicesHolder holder = strategy.deserializeObject(source);
             if (destination != null)  {
-                if (!(primaryDeviationTextField.getText().isEmpty() && secondaryDeviationTextField.getText().isEmpty())
-                        && (primaryDeviationTextField.getText().matches("0+[.,]?([0-9]+)?")) && secondaryDeviationTextField.getText().matches("([0-9])+([.,])([0-9]+)")) {
-                    double primaryDeviation = Double.valueOf(primaryDeviationTextField.getText().replaceAll(",","."));
-                    double secondaryDeviation = Double.valueOf(secondaryDeviationTextField.getText().replaceAll(",","."));
+                if (!(primaryDeviationTextField.getText().isEmpty()
+                        && secondaryDeviationTextField.getText().isEmpty())
+                        && (primaryDeviationTextField.getText().matches(primaryPattern)) && secondaryDeviationTextField.getText().matches(secondaryPattern)) {
+                    double primaryDeviation = Double.parseDouble(primaryDeviationTextField.getText().replaceAll(",","."));
+                    double secondaryDeviation = Double.parseDouble(secondaryDeviationTextField.getText().replaceAll(",","."));
                     strategy.serializeObject(destination, holder, primaryDeviation, secondaryDeviation);
                     sourceActionStatus.setText("The file was successfully converted");
                 } else {
