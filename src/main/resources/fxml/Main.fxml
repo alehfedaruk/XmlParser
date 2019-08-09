@@ -5,17 +5,17 @@
 
 <AnchorPane id="styleID" prefHeight="255.0" prefWidth="442.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.fedaruk.controller.Controller">
    <children>
-      <Pane id="mainPane" layoutY="-6.0" prefHeight="280.0" prefWidth="554.0">
+      <Pane id="mainPane" layoutY="-6.0" prefHeight="280.0" prefWidth="447.0">
          <children>
-            <Button layoutX="65.0" layoutY="192.0" mnemonicParsing="false" onAction="#setXMLFile" prefHeight="25.0" prefWidth="90.0" text="Choose file" />
-            <Button layoutX="404.0" layoutY="192.0" mnemonicParsing="false" onAction="#convertFile" prefHeight="25.0" prefWidth="90.0" text="Convert file" />
-            <Button layoutX="233.0" layoutY="192.0" mnemonicParsing="false" onAction="#setSavingFile" prefHeight="25.0" prefWidth="90.0" text="Path to save" />
-            <TextField fx:id="primaryDeviationTextField" layoutX="33.0" layoutY="96.0" prefHeight="25.0" prefWidth="153.0" promptText="Luxembourg" />
-            <TextField fx:id="secondaryDeviationTextField" layoutX="371.0" layoutY="96.0" prefHeight="25.0" prefWidth="153.0" promptText="Other countries" />
-            <Label layoutX="33.0" layoutY="128.0" prefHeight="64.0" prefWidth="153.0" text="Set primary deviation" wrapText="true" />
-            <Label layoutX="372.0" layoutY="128.0" prefHeight="64.0" prefWidth="153.0" text="Set secondary deviation" wrapText="true" />
-            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="185.0" layoutY="14.0" prefHeight="82.0" prefWidth="186.0" text="VATXMLCalculator" textAlignment="CENTER" />
-            <Label fx:id="sourceActionStatus" alignment="CENTER" layoutY="236.0" prefHeight="36.0" prefWidth="554.0" text="Status bar..." />
+            <Button layoutX="43.0" layoutY="192.0" mnemonicParsing="false" onAction="#setXMLFile" prefHeight="25.0" prefWidth="90.0" text="Choose file" />
+            <Button layoutX="326.0" layoutY="192.0" mnemonicParsing="false" onAction="#convertFile" prefHeight="25.0" prefWidth="90.0" text="Convert file" />
+            <Button layoutX="185.0" layoutY="192.0" mnemonicParsing="false" onAction="#setSavingFile" prefHeight="25.0" prefWidth="90.0" text="Path to save" />
+            <TextField fx:id="primaryDeviationTextField" layoutX="43.0" layoutY="105.0" prefHeight="25.0" prefWidth="153.0" promptText="Primary" alignment="CENTER" />
+            <TextField fx:id="secondaryDeviationTextField" layoutX="250.0" layoutY="105.0" prefHeight="25.0" prefWidth="153.0" promptText="Secondary" />
+            <Label layoutX="60.0" layoutY="130.0" prefHeight="36.0" prefWidth="119.0" text="Set primary deviation" wrapText="true" />
+            <Label layoutX="259.0" layoutY="130.0" prefHeight="36.0" prefWidth="128.0" text="Set secondary deviation" wrapText="true" />
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="137.0" prefHeight="82.0" prefWidth="186.0" text="VatParser" textAlignment="CENTER" />
+            <Label fx:id="sourceActionStatus" alignment="CENTER" layoutX="1.0" layoutY="236.0" prefHeight="36.0" prefWidth="447.0" text="Status bar..." />
          </children>
       </Pane>
    </children>
