@@ -1,10 +1,10 @@
 # XmlParser
 
-Simple xml parser
+### Simple xml parser
 
-Techs: 
-Maven 
-Jackson
-Apache Commons
-JavaFX
-CSS
+<br/> Used technologies: 
+* Maven 
+* Jackson
+* Apache Commons
+* JavaFX
+* CSS
